@@ -1,13 +1,8 @@
-import React ,  { useEffect }from 'react';
+import React, {useEffect} from 'react'
 
 /** 地图组件 */
 const Map = () => {
-    
-    return (
-        <div >
-            {/*  */}
-        </div>
-    )
+    return <div>{/*  */}</div>
 }
 
-export default Map;
+export default Map

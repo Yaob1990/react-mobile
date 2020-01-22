@@ -17,19 +17,17 @@
         .right {
             position: absolute;
             right: 0;
-            
         }
         .bottom {
             position: absolute;
             bottom: 0;
             display: flex;
             right: 150px;
-            
         }
         .left {
             position: absolute;
             left: 0;
-            top: 150px;   
+            top: 150px;
         }
         .active {
             -webkit-filter: drop-shadow(6px 6px 10px green) blur(2px);

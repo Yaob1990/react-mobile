@@ -67,7 +67,7 @@ const extractTextPluginOptions = shouldUseRelativeAssetPaths
 // It compiles slowly and is focused on producing a fast and minimal bundle.
 // The development configuration is different and lives in a separate file.
 module.exports = {
-  mode: 'production', 
+  mode: 'production',
   // Don't attempt to continue if there are any errors.
   bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
@@ -138,7 +138,7 @@ module.exports = {
       // Make sure your source files are compiled, as they will not be processed in any way.
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
       new TsconfigPathsPlugin({ configFile: paths.appTsProdConfig }),
-      
+
     ],
   },
   module: {
@@ -209,7 +209,7 @@ module.exports = {
             loader: ExtractTextPlugin.extract(
               Object.assign(
                 {
-                  
+
 
                   fallback: {
                     loader: require.resolve('style-loader'),
@@ -244,7 +244,7 @@ module.exports = {
                             "viewportUnit": "vw",
                             "selectorBlackList": [".ignore"],
                             "minPixelValue": 1,
-                            "mediaQuery": false 
+                            "mediaQuery": false
                           }),
                           require('postcss-flexbugs-fixes'),
                           autoprefixer({
@@ -264,16 +264,16 @@ module.exports = {
                           warnForDuplicates: false
                         }),
                         cssnano({
-                          preset: "advanced", 
-                          autoprefixer: false, 
-                          "postcss-zindex": false 
+                          preset: "advanced",
+                          autoprefixer: false,
+                          "postcss-zindex": false
                         }),
                         ],
                       },
                     },
                     {
                       // loader:require.resolve("sass-loader"),
-                     
+
                       loader:require.resolve("fast-sass-loader"),
 
                     }
@@ -409,34 +409,34 @@ module.exports = {
     }),
     // Generate a service worker script that will precache, and keep up to date,
     // the HTML & assets that are part of the Webpack build.
-    new SWPrecacheWebpackPlugin({
-      // By default, a cache-busting query parameter is appended to requests
-      // used to populate the caches, to ensure the responses are fresh.
-      // If a URL is already hashed by Webpack, then there is no concern
-      // about it being stale, and the cache-busting can be skipped.
-      dontCacheBustUrlsMatching: /\.\w{8}\./,
-      filename: 'service-worker.js',
-      logger(message) {
-        if (message.indexOf('Total precache size is') === 0) {
-          // This message occurs for every build and is a bit too noisy.
-          return;
-        }
-        if (message.indexOf('Skipping static resource') === 0) {
-          // This message obscures real errors so we ignore it.
-          // https://github.com/facebookincubator/create-react-app/issues/2612
-          return;
-        }
-        // console.log(message);
-      },
-      minify: true,
-      // For unknown URLs, fallback to the index page
-      navigateFallback: publicUrl + '/index.html',
-      // Ignores URLs starting from /__ (useful for Firebase):
-      // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
-      navigateFallbackWhitelist: [/^(?!\/__).*/],
-      // Don't precache sourcemaps (they're large) and build asset manifest:
-      staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
-    }),
+    // new SWPrecacheWebpackPlugin({
+    //   // By default, a cache-busting query parameter is appended to requests
+    //   // used to populate the caches, to ensure the responses are fresh.
+    //   // If a URL is already hashed by Webpack, then there is no concern
+    //   // about it being stale, and the cache-busting can be skipped.
+    //   dontCacheBustUrlsMatching: /\.\w{8}\./,
+    //   filename: 'service-worker.js',
+    //   logger(message) {
+    //     if (message.indexOf('Total precache size is') === 0) {
+    //       // This message occurs for every build and is a bit too noisy.
+    //       return;
+    //     }
+    //     if (message.indexOf('Skipping static resource') === 0) {
+    //       // This message obscures real errors so we ignore it.
+    //       // https://github.com/facebookincubator/create-react-app/issues/2612
+    //       return;
+    //     }
+    //     // console.log(message);
+    //   },
+    //   minify: true,
+    //   // For unknown URLs, fallback to the index page
+    //   navigateFallback: publicUrl + '/index.html',
+    //   // Ignores URLs starting from /__ (useful for Firebase):
+    //   // https://github.com/facebookincubator/create-react-app/issues/2237#issuecomment-302693219
+    //   navigateFallbackWhitelist: [/^(?!\/__).*/],
+    //   // Don't precache sourcemaps (they're large) and build asset manifest:
+    //   staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+    // }),
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
     // solution that requires the user to opt into importing specific locales.
@@ -447,7 +447,7 @@ module.exports = {
     new ForkTsCheckerWebpackPlugin({
       async: false,
       tsconfig: paths.appTsProdConfig,
-      tslint: paths.appTsLint,
+      // tslint: paths.appTsLint,
     }),
   ],
   optimization: {
@@ -462,14 +462,5 @@ module.exports = {
     net: 'empty',
     tls: 'empty',
     child_process: 'empty',
-  },
-  externals: {
-    "react": "React",
-    "redux": "Redux",
-    'axios': "axios",
-    "react-dom": "ReactDOM",
-    "react-router": "ReactRouter",
-    // "antd-mobile": "antd-mobile"
-    // "react-dom": "ReactDOM"
   }
 };

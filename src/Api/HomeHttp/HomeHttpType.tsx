@@ -4,6 +4,6 @@ interface GetMusicUrltypeDatatype {
 
 // 数据类型接口
 export interface GetMusicUrltype {
-    code: number,
+    code: number
     data: GetMusicUrltypeDatatype[]
-};
+}

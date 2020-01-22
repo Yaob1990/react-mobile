@@ -201,7 +201,7 @@ module.exports = {
                   // https://github.com/facebookincubator/create-react-app/issues/2677
                   ident: 'postcss',
                   plugins: () => [
-                    
+
                     require('postcss-px-to-viewport')({
                       "viewportWidth": 750,
                       "unitPrecision": 3,
@@ -209,8 +209,8 @@ module.exports = {
                       "selectorBlackList": [".ignore",'.hairlines'],
                       "minPixelValue": 1,
                       "mediaQuery": false,
-                      "exclude":/(\/|\\)(node_modules)(\/|\\)/ 
-                      
+                      "exclude":/(\/|\\)(node_modules)(\/|\\)/
+
                     }),
                     require('postcss-flexbugs-fixes'),
                     autoprefixer({
@@ -228,9 +228,9 @@ module.exports = {
                     }),
                     postcssCssnext({}),
                     cssnano({
-                      preset: "advanced", 
-                      autoprefixer: false, 
-                      "postcss-zindex": false 
+                      preset: "advanced",
+                      autoprefixer: false,
+                      "postcss-zindex": false
                     }),
                   ],
                 },
@@ -238,7 +238,7 @@ module.exports = {
               {
                 loader:require.resolve("sass-loader")
               },
-              
+
             ],
           },
           { test: /\.css$/, exclude: /(src)/, loader: 'style-loader!css-loader' },
@@ -269,7 +269,7 @@ module.exports = {
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In development, this will be an empty string.
-   
+
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
@@ -303,7 +303,7 @@ module.exports = {
       async: false,
       watch: paths.appSrc,
       tsconfig: paths.appTsConfig,
-      tslint: paths.appTsLint,
+      // tslint: paths.appTsLint,
     }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
